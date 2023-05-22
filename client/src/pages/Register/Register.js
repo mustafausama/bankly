@@ -22,7 +22,7 @@ function Register() {
 
   const onSubmit = async (data) => {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/authentication/register/",
+      process.env.REACT_APP_SERVER + "/api/authentication/register/",
       {
         method: "POST",
         headers: {

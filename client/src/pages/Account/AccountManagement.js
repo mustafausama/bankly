@@ -33,7 +33,7 @@ const AccountManagement = () => {
   useEffect(() => {
     const fetchStatements = async () => {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/accounts/${account_id}/statements/`,
+        `${process.env.REACT_APP_SERVER}/api/accounts/${account_id}/statements/`,
         {
           headers: {
             Authorization: "Bearer " + access
@@ -44,11 +44,14 @@ const AccountManagement = () => {
       return json;
     };
     const fetchAccount = async () => {
-      const response = await fetch("http://127.0.0.1:8000/api/accounts/", {
-        headers: {
-          Authorization: "Bearer " + access
+      const response = await fetch(
+        process.env.REACT_APP_SERVER + "/api/accounts/",
+        {
+          headers: {
+            Authorization: "Bearer " + access
+          }
         }
-      });
+      );
       const json = await response.json();
       return json.filter((account) => account.id === parseInt(account_id))[0];
     };
@@ -63,7 +66,7 @@ const AccountManagement = () => {
   const onSubmit = async (data) => {
     console.log(data, access);
     const response = await fetch(
-      "http://127.0.0.1:8000/api/accounts/transactions/create/",
+      process.env.REACT_APP_SERVER + "/api/accounts/transactions/create/",
       {
         method: "POST",
         headers: {

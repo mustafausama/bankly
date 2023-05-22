@@ -39,7 +39,7 @@ function Login({ setAccess }) {
   }, [watch, clearErrors]);
   const onSubmit = async (data) => {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/authentication/token/",
+      process.env.REACT_APP_SERVER + "/api/authentication/token/",
       {
         method: "POST",
         headers: {

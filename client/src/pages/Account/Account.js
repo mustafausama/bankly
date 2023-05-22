@@ -28,11 +28,14 @@ const Account = () => {
   }, [watch, clearErrors]);
   useEffect(() => {
     const fetchAccounts = async () => {
-      const response = await fetch("http://127.0.0.1:8000/api/accounts/", {
-        headers: {
-          Authorization: "Bearer " + access
+      const response = await fetch(
+        process.env.REACT_APP_SERVER + "/api/accounts/",
+        {
+          headers: {
+            Authorization: "Bearer " + access
+          }
         }
-      });
+      );
       const json = await response.json();
       return json;
     };
@@ -44,15 +47,18 @@ const Account = () => {
 
   const onSubmit = async (data) => {
     console.log(data, access);
-    const response = await fetch("http://127.0.0.1:8000/api/accounts/create/", {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + access,
-        "Content-Type": "application/json"
-      },
+    const response = await fetch(
+      process.env.REACT_APP_SERVER + "/api/accounts/create/",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + access,
+          "Content-Type": "application/json"
+        },
 
-      body: JSON.stringify(data)
-    });
+        body: JSON.stringify(data)
+      }
+    );
     const json = await response.json();
 
     if (response.ok) {

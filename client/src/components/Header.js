@@ -7,7 +7,7 @@ const Header = ({ access }) => {
     if (access) {
       const fetchNotifications = async () => {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/accounts/notifications/unread/",
+          process.env.REACT_APP_SERVER + "/api/accounts/notifications/unread/",
           {
             headers: {
               Authorization: "Bearer " + access

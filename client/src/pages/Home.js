@@ -6,7 +6,7 @@ const Home = ({ access }) => {
   useEffect(() => {
     if (!access) navigate("/login");
     else navigate("/account");
-  }, [access]);
+  }, [access, navigate]);
   return <></>;
 };
 

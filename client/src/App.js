@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
+import Logout from "./pages/logout/Logout";
+import RequiresAuth from "./components/RequiresAuth";
+import Account from "./pages/Account/Account";
+import AccountManagement from "./pages/Account/AccountManagement";
+import { Container } from "react-bootstrap";
+import Header from "./components/Header";
+import { useEffect, useState } from "react";
+import { auth } from "./utils/auth";
+import Home from "./pages/Home";
 
 function App() {
+  const [access, setAccess] = useState();
+  useEffect(() => {
+    setAccess(auth());
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header access={access} />
+      <Container>
+        <div className="mt-4">
+          <Routes>
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login setAccess={setAccess} />} />
+            <Route path="/logout" element={<Logout setAccess={setAccess} />} />
+            <Route
+              path="/account"
+              element={
+                <RequiresAuth>
+                  <Account />
+                </RequiresAuth>
+              }
+            />
+            <Route
+              path="/account/:account_id"
+              element={
+                <RequiresAuth>
+                  <AccountManagement />
+                </RequiresAuth>
+              }
+            />
+            <Route path="*" element={<Home access={access} />}></Route>
+          </Routes>
+        </div>
+      </Container>
+    </BrowserRouter>
   );
 }
 

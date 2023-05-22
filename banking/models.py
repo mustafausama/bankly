@@ -66,12 +66,14 @@ class Transaction(models.Model):
         Notification,
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
         related_name="sender_transactions",
     )
     recipient_notification = models.ForeignKey(
         Notification,
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
         related_name="recipient_transactions",
     )
 

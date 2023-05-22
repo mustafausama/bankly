@@ -31,7 +31,7 @@ urlpatterns = [
         name="transaction_create",
     ),
     path(
-        "accounts/<int:account_id>/statements/",
+        "<int:account_id>/statements/",
         BankStatementListView.as_view(),
         name="bank_statement_list",
     ),

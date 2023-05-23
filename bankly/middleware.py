@@ -30,8 +30,10 @@ class CustomMiddleware:
 
         # Log the results
         # logger = logging.getLogger("debug")
-        custom_logger.debug(f"Request: {request.method} {request.path}")
-        custom_logger.debug(f"Number of Queries: {total_queries}")
-        custom_logger.debug(f"Total time: {(total_time):.2f}s")
+        custom_logger.debug(
+            f"Request: {request.method} {request.path} Number of Queries: {total_queries} Total time: {(total_time):.2f}s"
+        )
+        # custom_logger.debug(f"")
+        # custom_logger.debug(f"")
 
         return response

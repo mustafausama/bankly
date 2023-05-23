@@ -246,6 +246,17 @@ files = [
 Django = ">=3.2"
 
 [[package]]
+name = "django-log-viewer"
+version = "1.1.7"
+description = "Django log viewer"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-log-viewer-1.1.7.tar.gz", hash = "sha256:eba39271fe8315836fe86fce27fc60730faecc7864e22a2cc363c3eb95a00b84"},
+]
+
+[[package]]
 name = "djangorestframework"
 version = "3.14.0"
 description = "Web APIs for Django, made easy."
@@ -615,4 +626,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "1589d2776ed778dac46cf8f427c5b528e7c2fcda65cc435cfdfdd32e94ab0266"
+content-hash = "1bf0158a0987b3a307a127f1cad40cc9b6ce145a28eb06c7879ecf853ba4a110"

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Badge, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 const Header = ({ access }) => {
-  const [notifications, setNotifications] = useState();
+  const [notifications, setNotifications] = useState([]);
   useEffect(() => {
     if (access) {
       const fetchNotifications = async () => {

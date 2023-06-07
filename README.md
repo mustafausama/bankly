@@ -4,6 +4,8 @@ Welcome to the Bankly project! This is a university project focused on software 
 
 The project uses the Test-Driven Development (TDD) approach. Each functionality is first covered by tests, and then the implementation is done to make the tests pass. This ensures that all code is covered by tests and works as expected.
 
+**You can jump over to the [testing section](#testing)**
+
 ## Installation
 
 To install this project, you need to have Python 3.10 and Poetry installed on your machine. Poetry is a tool for dependency management and packaging in Python.

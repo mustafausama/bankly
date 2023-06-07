@@ -233,6 +233,7 @@ class TestTransactionConstraintsAPI(TestCase):
         self.assertEqual(self.recipient_account.balance, 70)
 
 
+# Admin transaction constraints
 # Unit testing and Integration testing
 class TestTransactionConstraintsModel(TestCase):
     def setUp(self):

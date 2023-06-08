@@ -29,8 +29,9 @@ This class tests the integration of user registration and login.
 
 In the integration testing, possible scenarios of stubs and drivers can be:
 
-- Stubs: In this context, stubs can be used to simulate the behavior of external dependencies such as a third-party authentication service. For example, when testing the login functionality, a stub can be used to simulate the response of an authentication service.
+- Stubs: Stubs were used instead of, for instance, the login logic in the `test_user_registration_and_login` unit test, to return a random access token of a consistent and an inconsistent value to test the app.
 
-- Drivers: Drivers can be used to trigger the functionality that needs to be tested. For example, in the `UserRegistrationLoginIntegrationTest` class, the `test_user_registration_and_login` method acts as a driver that triggers the registration and login functionalities.
+- Drivers: Drivers were used to trigger the functionality that needs to be tested. For example, in the `UserRegistrationLoginIntegrationTest` class, the `test_user_registration_and_login` method acts as a driver that triggers the registration and login functionalities. Drivers were also used in the app where the API provider view `TokenObtainPairView` was not yet ready to call the correct serializer class `TokenObtainPairSerializer`, so a driver was created to mimic the API view and call the serializer class.
+
 
 The integration tests ensure that the different units of the application work together as expected. They test the application as a whole, as opposed to unit tests which test individual components in isolation.

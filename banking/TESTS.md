@@ -63,10 +63,10 @@ This class tests the transaction functionality.
 
 ## Integration Testing
 
-In the integration testing, more possible scenarios of stubs and drivers can be:
+In the integration testing:
 
-- Stubs: In this context, stubs can be used to simulate the behavior of external dependencies such as a payment gateway or a third-party API. For example, when testing the transaction functionality, a stub can be used to simulate the response of a payment gateway.
+- Stubs: Stubs were used instead of, for instance, the balance logic in the `test_successful_transfer_transaction` unit test, to return a random balance of a consistent and an inconsistent value to test the app. Stubs were used in the same way in `TransactionsIntegrationTest` class.
 
-- Drivers: Drivers can be used to trigger the functionality that needs to be tested. For example, in the `TransactionsIntegrationTest` class, the `test_get_notificatios` and `test_get_bank_statements` methods act as drivers that trigger the retrieval of notifications and bank statements, respectively.
+- Drivers: Drivers were used to trigger the functionality that needs to be tested. For example, in the `TransactionsIntegrationTest` class, the `test_get_notificatios` and `test_get_bank_statements` methods act as drivers that trigger the retrieval of notifications and bank statements, respectively. Drivers were also used in the app where the API provider view `AccountListView` was not yet ready to call the correct serializer class `AccountRetrievalSerializer`, so a driver was created to mimic the API view and call the serializer class.
 
 The integration tests ensure that the different units of the application work together as expected. They test the application as a whole, as opposed to unit tests which test individual components in isolation.

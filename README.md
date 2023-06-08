@@ -31,6 +31,19 @@ graph LR
     E -->|Returns Response| G
 ```
 
+### API Documentation
+API and model views are documented on `http://ADMIN_HOST/swagger/`
+![](result-images/2023-06-08-05-02-55.png)
+
+## Testing Environemnt
+This project uses Test-Driven Development (TDD) approach. Each functionality is first covered by tests, and then the implementation is done to make the tests pass. This ensures that all code is covered by tests and works as expected.
+
+The project uses the following testing tools:
+- [Django Testing](https://docs.djangoproject.com/en/4.2/topics/testing/) - Django testing module that uses unittest module built-in python
+  - [unittest](https://docs.python.org/3/library/unittest.html#module-unittest) - *`The unittest unit testing framework was originally inspired by JUnit.`*
+  ![](result-images/2023-06-08-04-58-52.png)
+- [Coverage](https://coverage.readthedocs.io/en/coverage-5.5/) - Python code coverage tool
+
 ## Installation
 
 To install this project, you need to have Python 3.10 and Poetry installed on your machine. Poetry is a tool for dependency management and packaging in Python.

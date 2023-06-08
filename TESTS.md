@@ -53,7 +53,7 @@ The load testing is done using the [Apache HTTP Benchmarking Tool](https://httpd
 ### Backend Stateless
 | Load Test Description | Bash File | Output |
 | - | - | - |
-| 1000 total requests with 100 of them concurrent at a time.<br><br>*This tests a backend stateless endpoint with no database queries.* | [Load-Backend-Stateless](load-testing/load-backend-stateless.sh) | ![](result-images/2023-06-08-03-11-58.png) |
+| 1000 total requests with 100 of them concurrent at a time.<br><br>*This tests a backend stateless endpoint with no database queries.* | [Load-Backend-Stateless](load-testing/load-backend-stateless.sh) | ![](result-images/2023-06-08-04-20-40.png) |
 | 10000 total requests with 1000 of them concurrent at a time.<br><br>*This tests a backend stateless endpoint with no database queries.* | [Load-Backend-Stateless](load-testing/load-backend-stateless.sh) | ![](result-images/2023-06-08-03-20-03.png) |
 
 ### Backend With Database Queries

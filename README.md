@@ -52,6 +52,7 @@ The project includes unit tests, integration tests, and a "Big Bang" integration
 - The unit tests test individual components in isolation.
 - The integration tests test the interaction between different components.
 - The "Big Bang" integration test tests multiple functionalities in a single test.
+- The performance and load tests test application's performance and response to loads.
 
 You can find detailed descriptions of the tests in the following README files:
 

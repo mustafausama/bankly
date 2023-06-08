@@ -31,6 +31,24 @@ graph LR
     E -->|Returns Response| G
 ```
 
+The web app follows a standard architecture, with a frontend with API Consumer, and a backend with Views (API Providers), sereializers, and models.
+
+```mermaid
+graph RL
+    subgraph Frontend
+        Frtonend -->|calls| APIConsumer
+        APIConsumer -->|callback| Frtonend
+    end
+    APIConsumer -->|"request(payload)"| View["View (API Provider)"]
+    View["View (API Provider)"] -->|"response(status, data)"| APIConsumer
+    subgraph Backend
+        View["View (API Provider)"] -->|"fields"| Serializer
+        Serializer -->|"CRUD"| Model
+        Model -->|"DB status"| Serializer
+        Serializer -->|"data, status"| View["View (API Provider)"]
+    end
+```
+
 ### API Documentation
 API and model views are documented on `http://ADMIN_HOST/swagger/`
 ![](result-images/2023-06-08-05-02-55.png)

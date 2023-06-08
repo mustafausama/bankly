@@ -6,6 +6,31 @@ The project uses the Test-Driven Development (TDD) approach. Each functionality 
 
 **You can jump over to the [testing section](#testing)**
 
+## Architecture
+
+The Bankly project follows a standard web application architecture, with a frontend for user interaction and a backend for processing requests and managing data. The code is version controlled on GitHub and deployed on a DigitalOcean Droplet.
+
+Overview:
+
+1. **Developer:** Writes and tests code, then pushes it to GitHub.
+3. **DigitalOcean Droplet:** Pulls the code from GitHub, builds the frontend, runs tests, and runs the backend.
+4. **User:** Interacts with the frontend, which communicates with the backend as needed.
+
+The following diagram illustrates this architecture:
+
+```mermaid
+graph LR
+    A[Developer] -->|Pushes code| B[GitHub]
+    B -->|Code is pulled| C[DigitalOcean Droplet]
+    C --> D{DigitalOcean Droplet}
+    D -->|Frontend Build| E[Frontend]
+    D -->|Backend Install, Test, and Run| F[Backend]
+    G[User] -->|Sends Request| E
+    E -->|Sends Request| F
+    F -->|Returns Response| E
+    E -->|Returns Response| G
+```
+
 ## Installation
 
 To install this project, you need to have Python 3.10 and Poetry installed on your machine. Poetry is a tool for dependency management and packaging in Python.

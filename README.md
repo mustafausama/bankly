@@ -32,7 +32,11 @@ graph LR
 ```
 
 ### API Documentation
+<<<<<<< HEAD
 API and model views are documented on `http://ADMIN_HOST/swagger/`
+=======
+API is documented on `http://ADMIN_HOST/swagger/`
+>>>>>>> 1f880733280fc559db0878040fd2a1a927e43237
 ![](result-images/2023-06-08-05-02-55.png)
 
 ## Testing Environemnt

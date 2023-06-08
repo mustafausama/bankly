@@ -55,8 +55,8 @@ The project includes unit tests, integration tests, and a "Big Bang" integration
 
 You can find detailed descriptions of the tests in the following README files:
 
-- [Banking Tests](banking/TESTS.md)
-- [Authentication Tests](authentication/TESTS.md)
+- [Banking Unit and Integration Tests](banking/TESTS.md)
+- [Authentication Unit and Integration Tests](authentication/TESTS.md)
 - [Big Bang Integration, Performance, and Load Tests](TESTS.md)
 
 ## Running the Tests

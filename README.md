@@ -61,13 +61,29 @@ You can find detailed descriptions of the tests in the following README files:
 
 ## Running the Tests
 
-To run the tests, you can use the following command to run the tests including the branch coverage report:
+To run the tests, you can use the following command to run the tests:
 
 ```bash
-poetry run coverage run --branch manage.py test --noinput --verbosity 2
+poetry run python manage.py test
 ```
 
-This command will run all the tests in the project.
+To run the tests while including the branch coverage:
+
+```bash
+poetry run coverage run --branch manage.py test
+```
+
+Either of these two commands will run all the tests in the project.
+
+![](result-images/2023-06-08-02-30-43.png)
+
+To generate the test coverage report, you can use the following command that generates the report in the console:
+
+```bash
+poetry run coverage report --skip-empty --omit=manage.py,admin.py
+```
+
+![](result-images/2023-06-08-02-33-17.png)
 
 To generate the test coverage report, you can use the following command that generates the report in the test-coverage folder in an html format (the command ignores all manage.py and admin.py files as they are used by the server admin and are not tested):
 
@@ -75,6 +91,11 @@ To generate the test coverage report, you can use the following command that gen
 poetry run coverage html -d test-coverage -i --omit=manage.py,admin.py
 ```
 
+![](result-images/2023-06-08-02-34-40.png)
+
+You can check the coverage details of each file by clicking on any of them, as follows (e.g. `banking/models.py`):
+
+![](result-images/2023-06-08-02-36-13.png)
 
 ## Running
 

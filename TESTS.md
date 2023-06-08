@@ -33,3 +33,43 @@ In the integration testing, possible scenarios of stubs and drivers can be:
 - Drivers: Drivers can be used to trigger the functionality that needs to be tested. For example, in the `BigBangIntegrationTest` class, the `test_big_bang` method acts as a driver that triggers multiple functionalities in sequence.
 
 The integration tests ensure that the different units of the application work together as expected. They test the application as a whole, as opposed to unit tests which test individual components in isolation.
+
+## Performance and Load testing
+For the performance testing, a performance log middleware is added that, for each API request, logs the following:
+- The date and time (including milliseconds)
+- Request method (GET, POST, ...)
+- Request endpoint
+- Number of database queries used
+- Total time taken (since receving the request until generating a response)  
+
+The logs can be accessed by following the endpoint: `http://ADMIN_HOST/logs/` and clicking to select the performance.log file on the right, as follows:
+![](result-images/2023-06-08-02-40-39.png)
+
+The CPU, Network Bandwidth, and disk I/O are monitored to check performance for every given perid of time, as follows:
+![](result-images/2023-06-08-02-45-02.png)
+
+![](result-images/2023-06-08-02-45-16.png)
+
+![](result-images/2023-06-08-02-45-25.png)
+
+The load testing is done using the [Apache HTTP Benchmarking Tool](https://httpd.apache.org/docs/2.4/programs/ab.html) tool. The load testing scripts are as follows with outputs.
+
+### Frontend
+| Load Test Description | Bash File (adjust parameters) | Output |
+| - | - | - |
+| 1000 total requests with 100 of them concurrent at a time | [Load-Frontend-Stateless](load-testing/load-frontend-stateless.sh) | ![](result-images/2023-06-08-03-11-58.png) |
+| 10000 total requests with 10000 of them concurrent | [Load-Frontend-Stateless](load-testing/load-frontend-stateless.sh) | ![](result-images/2023-06-08-03-09-32.png) |
+
+### Backend Stateless
+| Load Test Description | Bash File | Output |
+| - | - | - |
+| 1000 total requests with 100 of them concurrent at a time.<br><br>*This tests a backend stateless endpoint with no database queries.* | [Load-Backend-Stateless](load-testing/load-backend-stateless.sh) | ![](result-images/2023-06-08-03-11-58.png) |
+| 10000 total requests with 1000 of them concurrent at a time.<br><br>*This tests a backend stateless endpoint with no database queries.* | [Load-Backend-Stateless](load-testing/load-backend-stateless.sh) | ![](result-images/2023-06-08-03-20-03.png) |
+
+### Backend With Database Queries
+| Load Test Description | Bash File | Output |
+| - | - | - |
+| 100 total requests with 10 of them concurrent at a time.<br><br>*This tests a backend endpoint that executes database queries.* | [Load-Backend-DB](load-testing/load-backend-db.sh) | ![](result-images/2023-06-08-03-22-18.png) |
+| 500 total requests with 50 of them concurrent at a time.<br><br>*This tests a backend endpoint that executes database queries.* | [Load-Backend-DB](load-testing/load-backend-db.sh) | ![](result-images/2023-06-08-03-23-27.png) |
+
+
